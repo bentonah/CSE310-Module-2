@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #aed9e0;
+  }
+  
+  #game-controls {
+    margin-bottom: 20px;
+  }
+  
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    grid-gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #game-board {
+      grid-template-columns: repeat(2, minmax(80px, 1fr));
+    }
+  }
+  
+  @media only screen and (min-width: 601px) and (max-width: 960px) {
+    #game-board {
+      grid-template-columns: repeat(4, minmax(80px, 1fr));
+    }
+  }
+  
+  .card {
+    width: 80px;
+    height: 80px;
+    background-color: #ff0000;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .card-text {
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  .card.face-down {
+    background-color: #ff0000;
+    border: 2px solid #ffd700;
+  }
+  
+  .card.face-down::before {
+    content: '😊';
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .card.face-up {
+    border: 3px solid #ffd700;
+    background-color: #ff0000;
+  }
+  
+  .card.matched {
+    border: 3px solid #ffd700;
+  }
+  
+  .card.matched::before {
+    content: '\2713';
+    font-size: 24px;
+    color: #00ff00;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .card.unmatched {
+    border: 3px solid #000;
+  }
+  
+  .card.unmatched::before {
+    content: '\2717';
+    font-size: 24px;
+    color: #ff0000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #reset-button {
+    display: block;
+    margin: 10px auto;
+  }  
